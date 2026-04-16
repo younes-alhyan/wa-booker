@@ -23,7 +23,13 @@ const { v4: uuid } = require("uuid");
 // }
 
 async function authMiddleware(req, res, next) {
-  req.user = { id: uuid() };
+  const auth = req.headers.authorization;
+  if (!auth) {
+    return res.status(401).json({ error: "No token" });
+  }
+
+  const token = auth.replace("Bearer ", "");
+  req.user = { id: token };
   next();
 }
 
