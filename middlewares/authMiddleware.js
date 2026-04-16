@@ -1,3 +1,4 @@
+const { v4: uuid } = require("uuid");
 // const supabase = require("../lib/supabase/db");
 
 // async function authMiddleware(req, res, next) {
@@ -22,8 +23,7 @@
 // }
 
 async function authMiddleware(req, res, next) {
-  if (!req.params.id) res.status(500).json({ error: "Auth error" });
-  res.user = { id: req.params.id };
+  res.user = { id: uuid() };
   next();
 }
 
