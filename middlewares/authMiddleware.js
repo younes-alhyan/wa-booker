@@ -23,7 +23,7 @@ const { v4: uuid } = require("uuid");
 // }
 
 async function authMiddleware(req, res, next) {
-  res.user = { id: uuid() };
+  req.user = { id: uuid() };
   next();
 }
 

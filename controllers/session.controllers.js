@@ -18,7 +18,7 @@ const getSessionController = async (req, res) => {
 const createSessionController = async (req, res) => {
   try {
     const id = req.user.id;
-    const session = await createSession(id);
+    const session = createSession(id);
 
     res.status(200).json({ session });
   } catch (err) {
