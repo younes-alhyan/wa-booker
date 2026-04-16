@@ -1,5 +1,6 @@
 const createSessionButton = document.getElementById("create-session");
 
+const userId = "my-user-id";
 let currentSession = null;
 let interval = null;
 
@@ -18,7 +19,7 @@ function startPollingQR() {
 async function fetchQR() {
   if (!currentSession) return;
 
-  const res = await fetch(`/sessions/${currentSession}/qr`);
+  const res = await fetch(`/?userId=${userId}`);
   const data = await res.json();
 
   const qrBox = document.getElementById("qr");
@@ -43,14 +44,11 @@ async function fetchQR() {
    CREATE SESSION
 ----------------------------*/
 async function createSession() {
-  const res = await fetch("/sessions", {
+  const res = await fetch(`/?userId=${userId}`, {
     method: "POST",
   });
-
   const data = await res.json();
-
-  setSession(data.id);
-
+  setSession(data);
   startPollingQR();
 }
 
@@ -59,9 +57,7 @@ async function createSession() {
 ----------------------------*/
 function setSession(id) {
   currentSession = id;
-
   document.getElementById("sessionId").innerText = "Session: " + currentSession;
-
   localStorage.setItem("session", currentSession);
 }
 
