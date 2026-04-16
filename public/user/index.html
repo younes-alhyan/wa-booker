@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Session</title>
+  <style>
+    body {
+      font-family: Arial;
+      padding: 20px;
+    }
+
+    .container {
+      display: flex;
+      gap: 20px;
+    }
+
+    .contacts {
+      width: 300px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      height: 400px;
+      overflow-y: auto;
+    }
+
+    .contact {
+      padding: 8px;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+    }
+
+    .contact:hover {
+      background: #f5f5f5;
+    }
+
+    .chat {
+      flex: 1;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+
+    input, button {
+      padding: 8px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>Session Dashboard</h1>
+
+<p id="sessionId"></p>
+
+<div class="container">
+
+  <div class="contacts" id="contacts">
+    Loading contacts...
+  </div>
+
+  <div class="chat">
+    <h3>Send Message</h3>
+
+    <p id="selectedContact">No contact selected</p>
+
+    <input id="messageInput" placeholder="Type message..." />
+    <br />
+
+    <button onclick="sendMessage()">Send</button>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

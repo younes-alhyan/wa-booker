@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sessions Dashboard</title>
+  <style>
+    body {
+      font-family: Arial;
+      padding: 20px;
+    }
+
+    .session {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .status {
+      padding: 4px 10px;
+      border-radius: 5px;
+      color: white;
+      font-size: 12px;
+    }
+
+    .connected { background: green; }
+    .connecting { background: orange; }
+    .disconnected { background: red; }
+  </style>
+</head>
+
+<body>
+
+  <h1>WhatsApp Sessions</h1>
+
+  <button onclick="loadSessions()">Refresh</button>
+
+  <div id="sessions"></div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
